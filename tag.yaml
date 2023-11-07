@@ -1,4 +1,26 @@
+#If you have a large playbook, it may be useful to run only specific parts of it instead of running the entire playbook
+#for example if we have 3 plays all softwares are installed in node but in one play i have changed.
+# for that scenior by using tag that particular play will the deploy.
 - hosts: all
   become: yes
   tasks:
-  - name: 
+  - name: uninstall the software
+    yum:
+     name: java
+     state: absent # this parameter will use to uninstall the software
+    tag:test1 
+
+- hosts: all
+  become: yes
+  tasks:
+  - name: nstall the software
+    yum:
+     name: unzip
+     state: present # this parameter will use to uninstall the software
+    tag:test2
+
+    # ansible-playbook playbookname --tags "test1" --> command
+
+
+    # for example if have 4 changes in play onle one have no changes for that we can skip the play by using tag.
+    #anssible-playbook playbookname --skip-tags " tagname" --> command
