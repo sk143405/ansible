@@ -1,6 +1,6 @@
-- host: all
+- host: all # add the node ips in hosts
   become: yes # to run the root privillages
-  tasks:
+  tasks: 
    - name: installing the software withoutloop # message
       yum:
        name: java
