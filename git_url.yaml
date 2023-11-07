@@ -1,0 +1,9 @@
+# git_url module: Downloads files from HTTP, HTTPS, or FTP to the remote server. 
+#The remote server must have direct access to the remote resource.must have internet to the remote server
+- hosts: all
+  become: yes
+  tasks:
+  - name: dowload files 
+    git_url:
+     url: https:www.maven/download
+     dest: /home
