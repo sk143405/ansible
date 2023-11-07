@@ -1,0 +1,10 @@
+# loop module : to install the multiple softwares in nodes at a time
+- hosts: all
+  become: yes
+  tasks:
+  - name: installing the softwares by using loops module
+    yum:
+     name: "{{ item }}"
+    loop:
+     - java
+     - tomacat
