@@ -20,7 +20,8 @@
       - java
       - tomcat
 
-# git_url module: Downloads files from HTTP, HTTPS, or FTP to the remote server. The remote server must have direct access to the remote resource.must have internet to the remote server
+# git_url module: Downloads files from HTTP, HTTPS, or FTP to the remote server. 
+#The remote server must have direct access to the remote resource.must have internet to the remote server
 - hosts: all
   become: yes
   tasks:
@@ -32,16 +33,35 @@
     yum:
      name: unzip
   # The unarchive module unpacks an archive. By default, 
-  it will copy the source file from the local system to the target before unpacking - set remote_src=yes to unpack an archive which already exists on the target.
-  # if unzip the file must have the software  in our node machine
+  # it will copy the source file from the local system to the target before unpacking - set remote_src=yes to unpack an archive which already exists on the target.
+  # if unzip the file must have the software  in our node machine 
   - name: unzip the file
     unarchive: # it behaves it copy the file from master to node and zip file in the node machine. 
      src:
      dest:
      remote_src: yes # if this pass this parameter it will not copy the file from master to node bcoz the already file is in node machine.
+ 
   # lineinfile: Ensure a particular line is in a file, or replace an existing line using a back-referenced regular expression . 
   - name: to add the line in file
     lineinfile:
      path:
      line: ' '
+
+  # blockinfile : to add/delete/changes in the multiple file
+  - hosts: all
+    become: yes
+    tasks:
+    - name: to write the multiple files
+      command: home/file1
+    blockinfile:
+     path: /home/file1
+     block: |
+        by using blockinfile we add, change the filename, replace the line , delete the line the output have the surrended marker lines to the content.
+
+    o/p:
+    # begin ansible managed block
+     by using blockinfile we add, change the filename, replace the line , 
+     delete the line the output have the surrended marker lines to the content.
+    ###end ansible managed block 
+    
      
