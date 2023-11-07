@@ -1,0 +1,18 @@
+  # blockinfile : to add/delete/changes in the multiple file
+  - hosts: all
+    become: yes
+    tasks:
+    - name: to write the multiple files
+      command: touch home/file1
+    blockinfile:
+     path: /home/file1
+     block: |
+        by using blockinfile we add, change the filename, replace the line , delete the line the output have the surrended marker lines to the content.
+
+    o/p:
+    # begin ansible managed block
+     by using blockinfile we add, change the filename, replace the line , 
+     delete the line the output have the surrended marker lines to the content.
+    ###end ansible managed block 
+    
+     
