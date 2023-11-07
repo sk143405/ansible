@@ -1,0 +1,10 @@
+# group: maodule in /etc/ansible/hosts file we set the node ip by Groupname [group1]
+- hosts: group1
+  becomes: yes
+  tasks:
+   - name: install the softwares by group wise.
+     yum:
+      name: "{{ item }}"
+     loop:
+      - java
+      - tomcat
