@@ -1,0 +1,9 @@
+# to install the multiple softwares in node
+- hosts: all
+  become: yes
+  tasks:
+   yum:
+    name: {{ items }}
+   loop:
+    - java
+    - tomacat
