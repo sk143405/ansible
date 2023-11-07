@@ -1,4 +1,4 @@
-- host: all # add the node ips in hosts
+- hosts: all # add the node ips in hosts
   become: yes # to run the root privillages
   tasks: 
   - name: installing the software withoutloop # message
