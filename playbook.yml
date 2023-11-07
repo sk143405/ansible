@@ -39,4 +39,9 @@
      src:
      dest:
      remote_src: yes # if this pass this parameter it will not copy the file from master to node bcoz the already file is in node machine.
+  # lineinfile: Ensure a particular line is in a file, or replace an existing line using a back-referenced regular expression . 
+  - name: to add the line in file
+    lineinfile:
+     path:
+     line: ' '
      
