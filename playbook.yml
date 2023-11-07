@@ -1,9 +1,21 @@
-# to install the multiple softwares in node
+# to install the multiple softwares in nodes at a time
 - hosts: all
   become: yes
   tasks:
-   yum:
-    name: {{ items }}
-   loop:
-    - java
-    - tomacat
+  - name: installing the softwares by using loops module
+    yum:
+     name: "{{ item }}"
+    loop:
+     - java
+     - tomacat
+
+# Group
+- hosts: group1
+  becomes: yes
+  tasks:
+   - name: install the softwares by group wise.
+     yum:
+      name: "{{ item }}"
+     loop:
+      - java
+      - tomcat
