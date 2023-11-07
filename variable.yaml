@@ -1,0 +1,15 @@
+# To pass the variable withput hardcoding values
+# we set the varible in /etc/ansible/hosts
+# by run time also we pass the variable
+# in cmmnd line have the highest presendance
+- host: all
+  become: yes
+  vars:
+   package: ngnix
+  tasks:
+  - name : installing the packages with variable
+  apt: 
+   name: "{{ package }}"
+
+   # ansible-playbook playbookname -e "package-apache2" --> shorthand command cmd
+   # ansible-palybook playbookname --extra-vars "package-apache2" --> long hand cmd
