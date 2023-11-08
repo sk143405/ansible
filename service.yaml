@@ -1,0 +1,33 @@
+# to restart the service if any configuration changes in tomcat, ngnix, apache, maven by unsing service module.
+# to start, restart and stop by using service module
+
+
+- hosts: all
+  become: yes
+  tasks: 
+  - name: restart the service
+    service:
+     name: apache2
+     state: restart
+
+
+# handlers : it equal to task. handlers are end of the playbook, will reusing the mutiple times once we defined.
+# Sometimes you want a task to run only when a change is made on a machine.
+/* For example, you may want to restart a service if a task updates the configuration of that service, but not if the configuration is unchanged.
+Ansible uses handlers to address this use case. Handlers are tasks that only run when notified./*
+
+
+ - hosts: all
+  become: yes
+  tasks: 
+  - name: install ngnix
+    apt:
+     name: ngnix
+     state: present
+    notify:
+     Start ngnix
+   Handlers:
+    - name: Start ngnix
+      service:
+       name: ngnix
+       state: start
