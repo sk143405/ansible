@@ -1,0 +1,20 @@
+# in copy module unable replace the value. only copy static content 
+- hosts: all
+  become: yes
+  tasks:
+  - name: copy the file from master to node in a particular path
+    copy:
+     src: master path/file
+     dest: naode path/home/folder
+
+
+# not replce the by using the copy module
+- hosts: all
+  become: yes
+  vars:
+   package: anything in file
+  tasks:
+  - name: copy the file from master to node in a particular path
+    copy:
+     src: master path/file
+     dest: naode path/home/folder
