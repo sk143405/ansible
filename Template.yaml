@@ -1,0 +1,14 @@
+# to replace the values in content 
+#but file format must be file.js (jinja2 template)
+# we
+- hosts: all
+  become: yes
+  vars:
+   package: 
+  tasks:
+  - name:
+    template: 
+    src: /home/file.j2 # we rename the file or same file it will copy in node.
+                       # if not mentioned the filename in dest paramenter it copy the file.j2 in node.
+    dest: /home/file
+    
