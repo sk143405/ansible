@@ -1,7 +1,8 @@
 # to replace the values in content 
 #but file format must be file.js (jinja2 template)
 # in ex:file this is {{ value}} it will replece in copy moduel
-# it pass the dynamic content in variable 
+# it pass the dynamic content in template 
+#in master create a file.j2
 - hosts: all
   become: yes
   vars:
