@@ -1,4 +1,5 @@
 # in copy module unable replace the value. only copy static content 
+#in ex:file this is {{ value}} not replece in copy moduel
 - hosts: all
   become: yes
   tasks:
