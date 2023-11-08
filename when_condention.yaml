@@ -1,0 +1,17 @@
+# gathering_facts by defult true, it fetching the nodes: to get the information of OS, architure...
+# ansible -m setup all --> all nodes predefined parameters will fetch ansible facts.
+# all parameters are ansible_xxx-xx
+# if we have different OS family by using when condention to excute the playbook in  OS family.
+
+- hosts: all
+  become: yes
+  tasks:
+  - name:
+     apt:
+      name: apache2
+     when: ansible_os_family == "debian"
+   - name:
+      yum:
+       name: httpd
+     when: ansible_os_family == "centos"  
+      
