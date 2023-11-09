@@ -1,0 +1,8 @@
+#to reterview the copy from node to master
+- host: all
+  become: yes
+  tasks:
+  - name: to copy from node to master
+    fetch:
+     src:
+     dest:
